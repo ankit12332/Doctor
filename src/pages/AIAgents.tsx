@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useGLTF, Environment, MeshDistortMaterial, Float, Text3D, Sphere } from '@react-three/drei';
+import { Environment } from '@react-three/drei';
 import * as THREE from 'three';
 import { 
   Brain, 
@@ -628,8 +628,6 @@ const AIAgents: React.FC = () => {
                           {/* Connection lines */}
                           {[0, 1, 2, 3, 4, 5].map((i) => {
                             const angle = (i * Math.PI * 2) / 6;
-                            const x = Math.cos(angle) * 120;
-                            const y = Math.sin(angle) * 120;
                             
                             return (
                               <motion.div
