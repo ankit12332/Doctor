@@ -7,7 +7,7 @@ interface NavbarProps {
   theme: 'light' | 'dark';
 }
 
-const Navbar: React.FC<NavbarProps> = ({ theme }) => {
+const Navbar: React.FC<NavbarProps> = ({ }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -69,6 +69,16 @@ const Navbar: React.FC<NavbarProps> = ({ theme }) => {
             <NavLink to="/services" active={location.pathname === '/services'}>
               Services & Pricing
             </NavLink>
+            <NavLink to="/ai_agents" active={location.pathname === '/ai_agents'}>
+              AI Agents
+            </NavLink>
+            {/* Direct Insights Link */}
+            <NavLink 
+              to="/insights" 
+              active={location.pathname.startsWith('/insights')}
+            >
+              Insights
+            </NavLink>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -106,6 +116,13 @@ const Navbar: React.FC<NavbarProps> = ({ theme }) => {
             </MobileNavLink>
             <MobileNavLink to="/services" active={location.pathname === '/services'}>
               Services & Pricing
+            </MobileNavLink>
+            <MobileNavLink to="/ai_agents" active={location.pathname === '/ai_agents'}>
+              AI Agents
+            </MobileNavLink>
+            {/* Direct Insights Link */}
+            <MobileNavLink to="/insights" active={location.pathname.startsWith('/insights')}>
+              Insights
             </MobileNavLink>
             <div className="px-4 pt-4">
               <button className="w-full btn-primary">Get Started</button>

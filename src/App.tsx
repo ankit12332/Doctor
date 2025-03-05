@@ -12,6 +12,8 @@ import ChatWidget from './components/ChatWidget';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
+import AIAgents from './pages/AIAgents';
+import Insights from './pages/Insights';
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -48,6 +50,8 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/ai_agents" element={<AIAgents />} />
+            <Route path="/insights" element={<Insights />} />
           </Routes>
         </AnimatePresence>
       </main>
@@ -56,6 +60,6 @@ const App: React.FC = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default App;

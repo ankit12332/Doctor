@@ -1,22 +1,19 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Environment } from '@react-three/drei';
-import DoctorAvatar from './DoctorAvatar';
+import HospitalModel from './DoctorAvatar';
+import { OrbitControls, Environment } from '@react-three/drei';
 
-interface Scene3DProps {
-  className?: string;
-}
-
-const Scene3D: React.FC<Scene3DProps> = ({ className = '' }) => {
+const Scene3D: React.FC = () => {
   return (
-    <div className={`w-full h-full ${className}`}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <Suspense fallback={null}>
-          <DoctorAvatar />
-          <Environment preset="city" />
-        </Suspense>
-      </Canvas>
-    </div>
+    <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 10, 7.5]} intensity={0.8} />
+      <Suspense fallback={null}>
+        <HospitalModel />
+        <OrbitControls enableZoom={false} enablePan={false} />
+        <Environment preset="city" />
+      </Suspense>
+    </Canvas>
   );
 };
 
